@@ -75,7 +75,7 @@ const TransactionsPage = () => {
       accountId: accountId as string,
     }));
 
-    createTransactions.mutate(data, {
+    createTransactions.mutate({ json: data }, {
       onSuccess: () => {
         onCancelImport();
       },
@@ -138,7 +138,7 @@ const TransactionsPage = () => {
             data={transactions}
             onDelete={(row) => {
               const ids = row.map((r) => r.original.id);
-              deleteTransactions.mutate({ ids });
+              deleteTransactions.mutate({ json: { ids } });
             }}
             disabled={isDisabled} 
           />

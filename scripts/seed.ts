@@ -41,6 +41,8 @@ const generateRandomAmount = (category: typeof categories.$inferInsert) => {
     case "Transportation":
     case "Health":
       return Math.random() * 50 + 15;
+    default:
+      return 0; // Default value for any unhandled category
   }
 };
 
